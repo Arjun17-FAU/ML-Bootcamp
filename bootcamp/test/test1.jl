@@ -1,8 +1,4 @@
-
-function add_numbers(a,b)
-    return a+b
-end
-
+using .bootcamp
 
 ans  = add_numbers(2,3)
 println("Hi Julia and the sum of 2 and 3 is $ans") 
