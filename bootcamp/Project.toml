@@ -1,0 +1,7 @@
+name = "bootcamp"
+uuid = "05e73fc9-5677-47be-adfa-3166f7236474"
+authors = ["Arjun "]
+version = "0.1.0"
+
+[deps]
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
