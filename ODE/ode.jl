@@ -19,3 +19,4 @@ prob = ODEProblem(pendullum!, uo, tspan)
 sol = solve(prob)
 
 plot(sol, idxs =(0,2)) #Angular displacement vs time
+
