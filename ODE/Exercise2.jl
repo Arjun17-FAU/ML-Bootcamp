@@ -1,6 +1,7 @@
 using Plots
 using DifferentialEquations
 
+#PROBLEM ONE: SIMPLE Pendullum
 
 #Consider a vector u where we store the position and  angular velocity respectively
 
@@ -64,3 +65,35 @@ display(p7)
 
 p8 = plot(p2, p5, layout = (2, 1), size = (600, 800))
 display(p8)
+
+
+#PROBLEM 2: SIR MODEL
+
+#Parameters
+beta = 0.3
+gamma = 0.1
+N = 1000
+
+function SIR!(du, u, p, t)
+    du[1] = -(beta*u[1]*u[2])/N
+    du[2] =  ((beta*u[1]*u[2])/N) - gamma*u[2]
+    du[3] =  gamma*u[2]
+end
+
+uo = [999, 1, 0 ]
+tspan = (0,160)
+
+prob2 = ODEProblem(SIR!, uo, tspan)
+sol2 = solve(prob2, Tsit5())
+
+p9 = plot(sol2.t, sol2[1,:], linewidth = 2, title = "Susceptible population over time", xaxis = "Time", yaxis = "No: of people", label = "S(t)", legend=:topright)
+
+display(p9)
+
+p10 = plot(sol2.t, sol2[2,:], linewidth = 2, title = "Infected population over time", xaxis = "Time", yaxis = "No: of people", label = "I(t)", legend=:topright)
+
+display(p10)
+
+p11 = plot(sol2.t, sol2[3,:], linewidth = 2, title = "Recovered population over time", xaxis = "Time", yaxis = "No: of people", label = "R(t)", legend=:topright)
+
+display(p11)
