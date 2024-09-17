@@ -97,3 +97,37 @@ display(p10)
 p11 = plot(sol2.t, sol2[3,:], linewidth = 2, title = "Recovered population over time", xaxis = "Time", yaxis = "No: of people", label = "R(t)", legend=:topright)
 
 display(p11)
+
+
+#Save Plots
+# Ensure the 'plots' directory exists
+if !isdir("plots")
+    mkdir("plots")
+end
+
+# Save the plot into the 'plots' folder
+p7 = plot(p1, p4, layout = (2, 1), size = (600, 800))
+display(p7)
+
+# Save the plot as a file (e.g., PNG or PDF format)
+savefig("plots/p7_plot.png")
+
+p8 = plot(p2, p5, layout = (2, 1), size = (600, 800))
+display(p8)
+savefig("plots/p8_plot.png")
+
+p9 = plot(sol2.t, sol2[1,:], linewidth = 2, title = "Susceptible population over time", xaxis = "Time", yaxis = "No: of people", label = "S(t)", legend=:topright)
+
+display(p9)
+savefig("plots/p9_plot.png")
+
+p10 = plot(sol2.t, sol2[2,:], linewidth = 2, title = "Infected population over time", xaxis = "Time", yaxis = "No: of people", label = "I(t)", legend=:topright)
+
+display(p10)
+savefig("plots/p10_plot.png")
+
+p11 = plot(sol2.t, sol2[3,:], linewidth = 2, title = "Recovered population over time", xaxis = "Time", yaxis = "No: of people", label = "R(t)", legend=:topright)
+
+display(p11)
+savefig("plots/p11_plot.png")
+
